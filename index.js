@@ -25,7 +25,7 @@ function getnewboard() {
 function highlightSelected() {
     var selectedInput = $("#selectedInput").html()
     //reset all
-    $(".cell").css('background-color', 'var(--color-primary)')
+    $(".cell").css('background-color', '')
     //highlight relevant
     $(".cell:contains(" + selectedInput + ")").css('background-color', 'var(--color-highlight)')
 
@@ -135,6 +135,9 @@ $(function () {
                 boards["inputboard"][row][column] = selectedInput
                 boards["currentboard"][row][column] = Number(selectedInput)
             }
+        }else{
+            var selectedvalue = $(this).html()
+            $(".inputSelectorItem:contains(" +selectedvalue+")").click()
         }
         highlightSelected()
         saveBoards()
