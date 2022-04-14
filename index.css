@@ -21,15 +21,15 @@ body{
 #gameBoard {
 
     margin: auto;
-    padding: 10px;
-    aspect-ratio: 9/10;
+    /* padding: 10px; */
+    aspect-ratio: 9/11;
     max-height: 80vh;
     display: grid;
     grid-template-columns: repeat(9,1fr);
-    grid-template-rows: repeat(10,1fr);
+    grid-template-rows: repeat(11,1fr);
     font-family: Helvetica, Arial, sans-serif;
 
-    max-width: 90vw;
+    max-width: 98vw;
     box-sizing: border-box;
 }
 .seg{
@@ -80,10 +80,21 @@ body{
     
 }
 #newGameButton{
-    margin: auto;
+    grid-column-start: 4;
+    grid-column-end: 7;
     text-align: center;
     display: flex;
     justify-content: center;
     align-content: center;
-    flex-direction: column; 
+    flex-direction: column;
+    /* grid-column: span 3; */
+
 }
+/* #newGameButton{
+    text-align: center;
+    max-width: 30vw;
+    position: absolute;
+    right:33vw;
+    
+    /* display: flex; 
+} */
