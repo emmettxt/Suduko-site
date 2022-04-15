@@ -84,6 +84,14 @@ function winCongratulation() {
         $("body").hide(50).show(50)
 
     }
+    $.dialog({
+        title: 'Congratulations',
+        content: "You Win!",
+        theme: 'my-theme',
+        boxWidth: '30%',
+        useBootstrap: false,
+
+    });
 }
 function populateBoard(board, static) {
     console.log("Populating Board")
@@ -165,7 +173,7 @@ $(function () {
                         newGame();
                     }
                 },
-                Cancel:{
+                Cancel: {
                     btnClass: 'my-theme'
 
                 }
