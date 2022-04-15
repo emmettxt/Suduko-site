@@ -20,6 +20,7 @@ body{
     background-color: var(--color-primary);
     color: var(--color-secondary);
     font-size: 3vh;;
+    font-family: Helvetica, Arial, sans-serif;
     
 }
 #gameBoard {
@@ -108,6 +109,20 @@ body{
     font-weight: bolder;
     
 
+}
+#newGameConfirmation{
+    z-index: 2;
+}
+.jconfirm.jconfirm-my-theme .jconfirm-box{
+    background: var(--color-primary);
+    border-radius: 5%;
+    border: solid var(--color-secondary);
+}
+.jconfirm.jconfirm-my-theme .jconfirm-box .jconfirm-buttons button{
+    background-color: var(--color-highlight);
+    color: var(--color-secondary);
+    border-radius: 5%;
+    border: solid var(--color-secondary);
 }
 /* #newGameButton{
     text-align: center;

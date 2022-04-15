@@ -105,10 +105,10 @@ function populateBoard(board, static) {
 
 }
 //function that takes a object and returns the first class name that starts with "theme-"
-function getThemeClass(object){
+function getThemeClass(object) {
     var objectclasses = object.attr("class").split(/\s+/);
     return objectclasses.filter(objectclass => objectclass.startsWith("theme-"))[0]
-    
+
 }
 
 
@@ -150,11 +150,32 @@ $(function () {
         if (checkWin()) { winCongratulation() }
     })
 
-    $("#newGameButton").click(function () { newGame() })
+    $("#newGameButton").click(function () {
+        $.confirm({
+            theme: 'my-theme',
+            boxWidth: '30%',
+            useBootstrap: false,
+            title: 'New Game',
+            content: '',
+            buttons: {
 
-    $(".themeSelector").click(function() {
+                Confirm: {
+                    btnClass: 'my-theme',
+                    action: function () {
+                        newGame();
+                    }
+                },
+                Cancel:{
+                    btnClass: 'my-theme'
 
-        $("body").toggleClass( getThemeClass($("body"))).toggleClass(getThemeClass($(this)))
+                }
+            }
+        })
+    })
+
+    $(".themeSelector").click(function () {
+
+        $("body").toggleClass(getThemeClass($("body"))).toggleClass(getThemeClass($(this)))
     })
 
     setupBoards()
