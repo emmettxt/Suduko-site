@@ -70,16 +70,16 @@ function newGame() {
 function checkWin() {
     var win = true
 
-        for (var i = 0; i < 9; i++) {
-            for (var j = 0; j < 9 && win; j++) {
-                win = (boards["currentboard"][i][j] == boards["solution"][i][j])
-            }
+    for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9 && win; j++) {
+            win = (boards["currentboard"][i][j] == boards["solution"][i][j])
         }
-    
+    }
+
     return win
 }
-function winCongratulation(){
-    for(var i = 0;i<5 ;i++){
+function winCongratulation() {
+    for (var i = 0; i < 5; i++) {
         // $("body").css( 'background-color', 'var(--color-secondary)')
         $("body").hide(50).show(50)
 
@@ -104,6 +104,14 @@ function populateBoard(board, static) {
     }
 
 }
+//function that takes a object and returns the first class name that starts with "theme-"
+function getThemeClass(object){
+    var objectclasses = object.attr("class").split(/\s+/);
+    return objectclasses.filter(objectclass => objectclass.startsWith("theme-"))[0]
+    
+}
+
+
 //run after page load
 $(function () {
     $(".inputSelectorItem").click(function () {
@@ -111,14 +119,14 @@ $(function () {
         //reset selector
         $(".inputSelectorItem").css({ 'background-color': 'var(--color-primary)', 'color': 'var(--color-secondary)' })
         $(".inputSelectorItem").removeAttr('id')
-    
+
         if (thisSelected != 'selectedInput') {
             //hgihtlight selected
             $(this).css({ 'background-color': 'var(--color-secondary)', 'color': 'var(--color-primary)' })
             $(this).attr('id', 'selectedInput')
         }
         highlightSelected()
-    
+
     })
     $(".cell").click(function () {
         var selectedInput = $("#selectedInput").html()
@@ -135,18 +143,19 @@ $(function () {
                 boards["inputboard"][row][column] = selectedInput
                 boards["currentboard"][row][column] = Number(selectedInput)
             }
-        }else{
-            var selectedvalue = $(this).html()
-            $(".inputSelectorItem:contains(" +selectedvalue+")").click()
         }
         highlightSelected()
         saveBoards()
-        console.log("Won?:"+  checkWin())
-        if(checkWin()){winCongratulation()}
-        
+        console.log("Won?:" + checkWin())
+        if (checkWin()) { winCongratulation() }
     })
+
     $("#newGameButton").click(function () { newGame() })
 
+    $(".themeSelector").click(function() {
+
+        $("body").toggleClass( getThemeClass($("body"))).toggleClass(getThemeClass($(this)))
+    })
 
     setupBoards()
     // for (const [row_i, row] of boards["unsolved-sudoku"].entries()) {

@@ -1,15 +1,19 @@
 .theme-light {
+    --color-primary: #FFFACC    ;
+    --color-secondary: #53131E;
+    --color-highlight: #B5D6B2;
+    --color-pencil:#1C5D99;
+ }.theme-dark {
+    --color-primary: #1E352F;    
+    --color-secondary: #A6C36F;
+    --color-highlight: #335145;
+    --color-pencil:#FFA400;
+}
+.theme-neon {
     --color-primary: #E55934;    
     --color-secondary: #0A2463;
     --color-highlight: #FFD166;
-
     --color-pencil:#7CA982;
- }.theme-dark {
-    --color-primary: #17ed90;
-    --color-secondary: #243133;
-    --color-accent: #12cdea;
-    --font-color-primary: #ffffff;
-    --font-color-secondary: grey;
 }
 
 body{
@@ -22,15 +26,15 @@ body{
 
     margin: auto;
     /* padding: 10px; */
-    aspect-ratio: 9/11;
+    aspect-ratio: 9/12;
     max-height: 80vh;
     display: grid;
     grid-template-columns: repeat(9,1fr);
-    grid-template-rows: repeat(11,1fr);
+    grid-template-rows: repeat(12,1fr);
     font-family: Helvetica, Arial, sans-serif;
 
     max-width: 98vw;
-    box-sizing: border-box;
+    box-sizing: border-box;   
 }
 .seg{
     grid-row: span 3;
@@ -88,6 +92,21 @@ body{
     align-content: center;
     flex-direction: column;
     /* grid-column: span 3; */
+
+}
+.themeSelector{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border-radius: 5%;
+    border: solid var(--color-secondary);
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+    margin: 5%;
+    font-weight: bolder;
+    
 
 }
 /* #newGameButton{
