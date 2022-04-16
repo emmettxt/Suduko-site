@@ -10,7 +10,7 @@
     --color-pencil:#FFA400;
 }
 .theme-neon {
-    --color-primary: #E55934;    
+    --color-primary: #e55934;    
     --color-secondary: #0A2463;
     --color-highlight: #FFD166;
     --color-pencil:#7CA982;
@@ -110,6 +110,14 @@ body{
     
 
 }
+.selectedCell{
+    background-color: var(--color-highlight);
+}
+#selectedInput{
+    background-color: var(--color-secondary);
+    color: var(--color-primary)
+}
+
 #newGameConfirmation{
     z-index: 2;
 }
