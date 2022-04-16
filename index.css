@@ -10,30 +10,29 @@
     --color-pencil:#FFA400;
 }
 .theme-neon {
-    --color-primary: #e55934;    
+    /* --color-primary: #e55934;    
     --color-secondary: #0A2463;
     --color-highlight: #FFD166;
-    --color-pencil:#7CA982;
+    --color-pencil:#7CA982; */
+    --color-primary: #053C5E;    
+    --color-secondary: #E8DB7D;
+    --color-highlight: #1F7A8C;
+    --color-pencil:#FE4A49;
 }
-
 body{
     background-color: var(--color-primary);
     color: var(--color-secondary);
     font-size: 3vh;;
     font-family: Helvetica, Arial, sans-serif;
-    
 }
 #gameBoard {
-
     margin: auto;
-    /* padding: 10px; */
     aspect-ratio: 9/12;
     max-height: 80vh;
     display: grid;
     grid-template-columns: repeat(9,1fr);
     grid-template-rows: repeat(12,1fr);
     font-family: Helvetica, Arial, sans-serif;
-
     max-width: 98vw;
     box-sizing: border-box;   
 }
@@ -54,10 +53,8 @@ body{
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    /* font-size: 2em; */
     overflow: auto;
     color: var(--color-pencil)
-
 }
 .static{
     color: var(--color-secondary);
@@ -92,8 +89,6 @@ body{
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    /* grid-column: span 3; */
-
 }
 .themeSelector{
     text-align: center;
@@ -107,8 +102,6 @@ body{
     background-color: var(--color-primary);
     margin: 5%;
     font-weight: bolder;
-    
-
 }
 .selectedCell{
     background-color: var(--color-highlight);
@@ -116,10 +109,6 @@ body{
 #selectedInput{
     background-color: var(--color-secondary);
     color: var(--color-primary)
-}
-
-#newGameConfirmation{
-    z-index: 2;
 }
 .jconfirm.jconfirm-my-theme .jconfirm-box{
     background: var(--color-primary);
@@ -132,11 +121,3 @@ body{
     border-radius: 5%;
     border: solid var(--color-secondary);
 }
-/* #newGameButton{
-    text-align: center;
-    max-width: 30vw;
-    position: absolute;
-    right:33vw;
-    
-    /* display: flex; 
-} */
