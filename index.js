@@ -22,12 +22,17 @@ function getnewboard() {
     boards["currentboard"] = JSON.parse(JSON.stringify(boards["unsolved-sudoku"]))
     return boards
 }
+function highlightcell(cellobject) {
+    console.log("highlightcell")
+    cellobject.css('background-color', 'var(--color-highlight)')
+}
 function highlightSelected() {
+    console.log("highlightSelected")
     var selectedInput = $("#selectedInput").html()
     //reset all
     $(".cell").css('background-color', '')
     //highlight relevant
-    $(".cell:contains(" + selectedInput + ")").css('background-color', 'var(--color-highlight)')
+    highlightcell($(".cell:contains(" + selectedInput + ")"))
 
 }
 
@@ -123,22 +128,38 @@ function getThemeClass(object) {
 //run after page load
 $(function () {
     $(".inputSelectorItem").click(function () {
-        var thisSelected = $(this).attr('id')
-        //reset selector
-        $(".inputSelectorItem").css({ 'background-color': 'var(--color-primary)', 'color': 'var(--color-secondary)' })
-        $(".inputSelectorItem").removeAttr('id')
+        selectedCell = $(".cell.selectedCell")
+        if (selectedCell.length > 0) {
+            selectedCell.html($(this).html())
+            selectedCell.removeClass("selectedCell")
+        } else {
+            //reset selector
 
-        if (thisSelected != 'selectedInput') {
-            //hgihtlight selected
-            $(this).css({ 'background-color': 'var(--color-secondary)', 'color': 'var(--color-primary)' })
-            $(this).attr('id', 'selectedInput')
+            
+
+            if ($(this).attr('id') != 'selectedInput') {
+                //hgihtlight selected
+                $(this).attr('id', 'selectedInput')
+            }
+            else{
+                $(this).removeAttr('id')
+            }
+            $(".inputSelectorItem").not(this).removeAttr('id')
+            highlightSelected()
         }
-        highlightSelected()
-
     })
     $(".cell").click(function () {
         var selectedInput = $("#selectedInput").html()
-        if (!$(this).hasClass("static")) {
+        if ($(this).hasClass("static")) {
+            $(".inputSelectorItem:contains(" + $(this).html() + ")").click()
+        }
+        else if ($(this).html() == "" && selectedInput == null) {
+            console.log("emptycell")
+            highlightSelected()
+            // highlightcell($(this))
+            $(this).addClass("selectedCell")
+        }
+        else {
             var row = $(this).attr("data-row") - 1
             var column = $(this).attr("data-column") - 1
             if (selectedInput == null || selectedInput == $(this).html()) {
@@ -151,8 +172,9 @@ $(function () {
                 boards["inputboard"][row][column] = selectedInput
                 boards["currentboard"][row][column] = Number(selectedInput)
             }
+            highlightSelected()
         }
-        highlightSelected()
+
         saveBoards()
         console.log("Won?:" + checkWin())
         if (checkWin()) { winCongratulation() }
