@@ -216,19 +216,5 @@ $(function () {
     })
 
     setupBoards()
-    // for (const [row_i, row] of boards["unsolved-sudoku"].entries()) {
-    //     for (const [column_j, value] of row.entries()) {
-
-    //         cellSelector = ".cell[data-row='" + (row_i + 1) + "'][data-column='" + (column_j + 1) + "']"
-    //         // ".row_" + (row_i + 1) + ".column_" + (column_j + 1)
-    //         cell = $(cellSelector)
-    //         if (value != 0) {
-
-    //             cell.html(value)
-    //             cell.addClass("static")
-    //         }
-    //     }
-
-    // }
 });
 
