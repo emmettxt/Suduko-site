@@ -123,28 +123,35 @@ function getThemeClass(object) {
     return objectclasses.filter(objectclass => objectclass.startsWith("theme-"))[0]
 
 }
+function setCell(cellobject, number) {
+    cellobject.html(number)
+
+    var row = cellobject.attr("data-row") - 1
+    var column = cellobject.attr("data-column") - 1
+
+    boards["inputboard"][row][column] = number
+    boards["currentboard"][row][column] = Number(number)
+    saveBoards()
+}
 
 
 //run after page load
 $(function () {
     $(".inputSelectorItem").click(function () {
         selectedCell = $(".cell.selectedCell")
+        //if there is already a selected cell update its value to this
         if (selectedCell.length > 0) {
-            selectedCell.html($(this).html())
+            setCell(selectedCell, $(this).html())
             selectedCell.removeClass("selectedCell")
-        } else {
-            //reset selector
-
-            
-
-            if ($(this).attr('id') != 'selectedInput') {
-                //hgihtlight selected
+        }
+        //if there is no selected cell
+        else {
+            //if this is already selected unselect other wise select this
+            thisAlreadySelected = $(this).attr('id') == 'selectedInput'
+            $(".inputSelectorItem").removeAttr('id')
+            if (!thisAlreadySelected) {
                 $(this).attr('id', 'selectedInput')
             }
-            else{
-                $(this).removeAttr('id')
-            }
-            $(".inputSelectorItem").not(this).removeAttr('id')
             highlightSelected()
         }
     })
