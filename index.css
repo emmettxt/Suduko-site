@@ -10,10 +10,15 @@
     --color-pencil:#FFA400;
 }
 .theme-neon {
-    --color-primary: #e55934;    
+    /* --color-primary: #e55934;    
     --color-secondary: #0A2463;
     --color-highlight: #FFD166;
-    --color-pencil:#7CA982;
+    --color-pencil:#7CA982; */
+    --color-primary: #053C5E;    
+    --color-secondary: #E8DB7D;
+    --color-highlight: #1F7A8C;
+    --color-pencil:#FE4A49;
+    
 }
 
 body{

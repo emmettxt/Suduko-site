@@ -123,6 +123,12 @@ function getThemeClass(object) {
     return objectclasses.filter(objectclass => objectclass.startsWith("theme-"))[0]
 
 }
+function setupTheme(){
+    savedTheme = localStorage.getItem("themeClass")
+    if(savedTheme){
+        $("body").toggleClass(getThemeClass($("body"))).toggleClass(savedTheme)
+    }
+}
 function setCell(cellobject, number) {
     cellobject.html(number)
 
@@ -213,9 +219,11 @@ $(function () {
     $(".themeSelector").click(function () {
 
         $("body").toggleClass(getThemeClass($("body"))).toggleClass(getThemeClass($(this)))
+        localStorage.setItem("themeClass",getThemeClass($(this)))
     })
-
+    setupTheme()
     setupBoards()
+    
     // for (const [row_i, row] of boards["unsolved-sudoku"].entries()) {
     //     for (const [column_j, value] of row.entries()) {
 
