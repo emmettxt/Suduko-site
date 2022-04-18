@@ -81,27 +81,43 @@ body{
     border-radius: 5%;
     
 }
+select[name=difficulty]{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    color : var(--color-secondary);
+    background-color: var(--color-primary);
+}
 #newGameButton{
+    overflow: auto;
     grid-column-start: 4;
     grid-column-end: 7;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
 }
 .themeSelector{
     text-align: center;
+    font-weight: bolder;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+#optionsPanel{
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: 1fr;
+    grid-column: span 9;
+}
+.options{
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    border-radius: 5%;
-    border: solid var(--color-secondary);
-    color: var(--color-secondary);
-    background-color: var(--color-primary);
-    margin: 5%;
-    font-weight: bolder;
+    border: 0.01rem solid   var(--color-secondary) ;
+    border-radius: 1vh;
+    margin: 0.2vh;
 }
 .selectedCell{
     background-color: var(--color-highlight);

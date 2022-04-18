@@ -2,10 +2,11 @@
 function getnewboard() {
     console.log("getting new board")
     boards = null
+    difficulty = $("option:selected")[0].value
     const settings = {
         "async": false,
         "crossDomain": true,
-        "url": "https://sudoku-board.p.rapidapi.com/new-board?diff=1&stype=list&solu=true",
+        "url": "https://sudoku-board.p.rapidapi.com/new-board?diff=" + difficulty + "&stype=list&solu=true",
         "method": "GET",
         "headers": {
             "X-RapidAPI-Host": "sudoku-board.p.rapidapi.com",
